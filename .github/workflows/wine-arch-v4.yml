@@ -92,7 +92,9 @@ jobs:
           " > /usr/include/linux/winesync.h
           # Workaround for jack&jack2 conflict https://github.com/Frogging-Family/wine-tkg-git/issues/237
           sed -i "/'jack2'                 'lib32-jack2'/d" PKGBUILD
-          sed -i "/'gst-plugins-good'      'lib32-gst-plugins-good'/d" PKGBUILD 
+          sed -i "/'gst-plugins-good'      'lib32-gst-plugins-good'/d" PKGUILD
+          # Set to x86-64-v4
+          sed -i 's/march=x86-64-v3/march=x86-64-v4/g' wine-tkg-profiles/advanced-customization.cfg
           su user -c "yes|PKGDEST=/tmp/wine-tkg makepkg --noconfirm -s"
 
       - name: Archive the artifacts
