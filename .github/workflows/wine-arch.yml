@@ -1,4 +1,4 @@
-name: Wine Arch Linux CI
+name: Wine Arch Linux CI x86-64-v3
 
 on:
   schedule:
